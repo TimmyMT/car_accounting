@@ -11,8 +11,17 @@
 
   <body>
     <% if signed_in? %>
+      <% if current_user.admin? %>
+        <%= link_to 'Search cars', cars_path %>
+        &nbsp;
+        <%= link_to 'Managers', users_path %>
+      <% end %>
+      &nbsp;
+      <%= link_to 'Add car to DB', new_car_path %>
+      &nbsp;
       <%= current_user.role %>
-      <%= link_to 'Sign out', destroy_user_session_path %>
+      &nbsp;
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Sign in', new_user_session_path %>
       <%= link_to 'Sign up', new_user_registration_path %>

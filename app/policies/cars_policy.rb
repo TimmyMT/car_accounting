@@ -6,4 +6,8 @@ class CarsPolicy < ApplicationPolicy
   def create?
     admin? || user.manager?
   end
+
+  def manager_cars?
+    admin?
+  end
 end

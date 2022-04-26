@@ -1,1 +1,13 @@
-<h1>Main</h1>
+<h1>Auto statistics</h1>
+
+<%= form_tag(cars_path, method: :get) do %>
+  <%= text_field_tag(:number, params[:filter]) %>
+  <br>
+  <%= text_field_tag(:manufacturer, params[:filter]) %>
+  <br>
+  <%= text_field_tag(:model, params[:filter]) %>
+  <br>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= render partial: 'cars', locals: { cars: @cars } %>

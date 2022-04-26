@@ -1,22 +1,23 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :access_action, only: [:new, :create, :manager_cars]
 
   def index
-    
+    @cars = Car.page(params[:page]).per(params[:per])
+    @cars = CarsFilter.new(Car.all, params).call
   end
 
   def new
-    authorize(nil, policy_class: CarsPolicy)
-
-    car = current_user.cars.new(car_params)
+    @car = current_user.cars.new
   end
 
   def create
-    authorize(nil, policy_class: CarsPolicy)
-    
-    car = current_user.cars.new(car_params)
+    @car = current_user.cars.new(car_params)
+    exist_car = Car.find_by(car_params)
 
-    if car.save
+    if !exist_car && @car.save
+      redirect_to new_car_path
+    elsif exist_car
+      exist_car.update(record_count: exist_car.record_count + 1)
       redirect_to new_car_path
     else
       render :new
@@ -24,12 +25,15 @@ class CarsController < ApplicationController
   end
 
   def manager_cars
-    authorize(nil, policy_class: CarsPolicy)
-
-    @cars = Car.where(user_id: params[:user_id])
+    @manager = User.find(params[:user_id])
+    @cars = @manager.cars
   end
 
   private
+
+  def access_action
+    authorize(nil, policy_class: CarsPolicy)
+  end
 
   def car_params
     params.require(:car).permit(:number, :manufacturer, :model)

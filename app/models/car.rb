@@ -4,6 +4,9 @@ class Car < ApplicationRecord
   belongs_to :user
 
   validates :number, :manufacturer, :model, presence: true
-  validates :number, uniqueness: true
-  validates :number, format: { with: NUMBER_REGULAR, message: "Гос номер автомобиля", multiline: true }
+  validates :number, format: { with: NUMBER_REGULAR, message: "Number is wrong", multiline: true }
+
+  scope :by_number, lambda { |number| where(number: number)}
+  scope :by_manufacturer, lambda { |manufacturer| where(manufacturer: manufacturer)}
+  scope :by_model, lambda { |model| where(model: model)}
 end

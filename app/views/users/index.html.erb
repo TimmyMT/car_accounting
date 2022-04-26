@@ -1,0 +1,9 @@
+<h1>Managers</h1>
+
+<% @users.each do |user| %>
+  <p>
+    <%= user.email %>
+    &nbsp;
+    <%= link_to 'Added cars', "/cars/manager_cars/#{user.id}" %>
+  </p>
+<% end %>

@@ -1,0 +1,23 @@
+<h2>Add new car</h2>
+
+<%= form_with model: @car, local: true do |f| %>
+  <% if @car.errors.any? %>
+    <% @car.errors.each do |key, value| %>
+      <p><%= value %></p>
+    <% end %>
+  <% end %>
+
+  <%= f.label 'Number' %>
+  <br>
+  <%= f.text_field :number %>
+  <br>
+  <%= f.label 'Manufacturer' %>
+  <br>
+  <%= f.text_field :manufacturer %>
+  <br>
+  <%= f.label 'Model' %>
+  <br>
+  <%= f.text_field :model %>
+  <br>
+  <%= f.submit 'Add' %>
+<% end %>
