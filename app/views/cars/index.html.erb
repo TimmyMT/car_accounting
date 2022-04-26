@@ -1,9 +1,15 @@
 <h1>Auto statistics</h1>
 
 <%= form_tag(cars_path, method: :get) do %>
+  <%= label_tag 'Number' %>
+  <br>
   <%= text_field_tag(:number, params[:filter]) %>
   <br>
+  <%= label_tag 'Manufacturer' %>
+  <br>
   <%= text_field_tag(:manufacturer, params[:filter]) %>
+  <br>
+  <%= label_tag 'Model' %>
   <br>
   <%= text_field_tag(:model, params[:filter]) %>
   <br>
