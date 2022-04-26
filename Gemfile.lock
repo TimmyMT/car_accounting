@@ -81,14 +81,15 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     docile (1.4.0)
+    enumerize (2.5.0)
+      activesupport (>= 3.2)
     erubi (1.10.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faker (2.20.0)
-      i18n (>= 1.8.11, < 2)
+    ffaker (2.21.0)
     ffi (1.15.5)
     ffi (1.15.5-java)
     ffi (1.15.5-x64-mingw32)
@@ -299,8 +300,9 @@ DEPENDENCIES
   byebug
   database_cleaner
   devise
+  enumerize
   factory_bot_rails
-  faker
+  ffaker
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

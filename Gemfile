@@ -14,12 +14,15 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 gem 'pundit'
+gem 'enumerize'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'rubocop', require: false
+  gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 group :development do
@@ -31,8 +34,6 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'factory_bot_rails'
-  gem 'faker'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'pundit-matchers'
