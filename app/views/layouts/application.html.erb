@@ -11,11 +11,9 @@
 
   <body>
     <% if signed_in? %>
-      <% if current_user.admin? %>
-        <%= link_to 'Search cars', cars_path %>
-        &nbsp;
-        <%= link_to 'Managers', users_path %>
-      <% end %>
+      <%= link_to 'Search cars', cars_path %>
+      &nbsp;
+      <%= link_to 'Managers', users_path %>
       &nbsp;
       <%= link_to 'Add car to DB', new_car_path %>
       &nbsp;

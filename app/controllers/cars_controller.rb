@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CarsController < ApplicationController
-  before_action :access_action, only: %i[new create manager_cars]
+  before_action :access_action, only: %i[index new create manager_cars]
 
   def index
     @cars = Car.page(params[:page] || 1).per(params[:per] || 50)

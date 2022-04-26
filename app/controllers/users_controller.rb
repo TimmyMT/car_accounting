@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :access_action
 
   def index
-    @users = User.find_each
+    @users = User.page(params[:page] || 1).per(params[:per] || 50)
   end
 
   def show
