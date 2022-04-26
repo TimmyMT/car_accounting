@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :car do
     user
     number { 'а123бв02' }
     manufacturer { 'Volkswagen' }
-    model { ['golf', 'jetta', 'passat'].sample }
+    model { %w[golf jetta passat].sample }
   end
 end

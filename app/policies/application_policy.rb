@@ -38,8 +38,6 @@ class ApplicationPolicy
 
   private
 
-  private
-
   def admin?
     user.admin?
   end

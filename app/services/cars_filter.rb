@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CarsFilter
   attr_reader :relation, :params
 
@@ -28,7 +30,7 @@ class CarsFilter
 
   def filter_by_model(relation)
     return relation if !params[:model] || params[:model].empty?
-    
+
     relation.by_model(params[:model])
   end
 end

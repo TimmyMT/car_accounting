@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'sessions/logout'
   devise_for :users
@@ -5,10 +7,10 @@ Rails.application.routes.draw do
   resources :users
   resources :cars do
     collection do
-      get "manager_cars/:user_id", action: :manager_cars
+      get 'manager_cars/:user_id', action: :manager_cars
     end
   end
   resources :main, only: :index
 
-  root "main#index"
+  root 'main#index'
 end
