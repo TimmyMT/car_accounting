@@ -36,4 +36,26 @@ RSpec.describe CarsController, type: :controller do
       end
     end
   end
+
+  describe 'GET #index' do
+    context 'authorized user' do
+      before { login(user) }
+
+      context 'manager session' do
+        let(:user) { create :user }
+
+        
+      end
+
+      context 'admin session' do
+        let(:user) { create :user, :admin }
+
+
+      end
+    end
+
+    context 'guest session' do
+
+    end
+  end
 end
