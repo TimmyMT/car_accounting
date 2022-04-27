@@ -3,6 +3,7 @@
 require_relative 'boot'
 require 'rails/all'
 
+Warning[:deprecated] = false
 Bundler.require(*Rails.groups)
 
 module CarAccounting
