@@ -7,10 +7,6 @@ class UsersController < ApplicationController
     @users = User.page(params[:page] || 1).per(params[:per] || 50)
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
-
   private
 
   def access_action
