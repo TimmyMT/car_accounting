@@ -5,7 +5,7 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.page(params[:page] || 1).per(params[:per] || 50)
-    @cars = CarsFilter.new(Car.all, params).call.order(created_at: :desc)
+    @cars = CarsFilter.new(@cars, params).call.order(created_at: :desc)
   end
 
   def new
