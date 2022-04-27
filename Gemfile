@@ -25,7 +25,6 @@ group :development, :test do
   gem 'ffaker'
   gem 'pry'
   gem 'rspec-rails', '~> 4.0.0'
-  gem 'rubocop', require: false
   gem 'rubocop'
 end
 
